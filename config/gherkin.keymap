@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp Q>, <&kp ESC>;
+        };
+        td1: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1";
+            #binding-cells = <23>;
+            tapping-term-ms = <200>;
+            bindings = <&kp C>, <&kp LGUI(C)>;
+        };
+        td2: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_2";
+            #binding-cells = <24>;
+            tapping-term-ms = <200>;
+            bindings = <&kp V>, <&kp LGUI(V)>;
+        };
+    };
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <&kp td0 &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
+                        &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SPACE 
+                        &mt LSHIFT Z &kp X &kp td1 &lt 1 td2 &lt 2 B &lt 3 N &kp M &kp LGUI &kp BSPC &mt RSHIFT ENTER
+                        >;
+        };
+
+        first_layer {
+            bindings = <&kp BANG &kp ATSN &kp HASH &kp DLLR &kp PRCT &kp CRRT &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
+                        &kp TILDE &none &none &none &none &kp MINUS &kp PLUS &kp LBRC &kp RBRC &kp PIPE 
+                        &kp GRAVE &none &none &none &none &kp UNDER &kp EQUAL &kp LBKT &kp RBKT &kp BLSH 
+                        >;
+        };
+
+        second_layer {
+            bindings = <&kp BANG &kp ATSN &kp HASH &kp DLLR &kp PRCT &kp CRRT &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
+                        &kp TILDE &none &none &none &none &kp LT &kp GT &kp QMARK &kp COLON &kp DQT 
+                        &kp GRAVE &none &none &none &none &kp COMMA &kp DOT &kp FSLH &kp SEMI &kp SQT 
+                        >;
+        };
+        
+        third_layer {
+            bindings =
+                <&kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                 &none &none &none &none &none &none &kp LEFT &kp DOWN &kp UP &kp RIGHT
+                 &LSHFT &LCTRL &LALT &LGUI &none &none &none &RALT &RCTRL &RSHFT
+                 >;
+        };
+
+        fourth_layer {
+            bindings = <&bootloader &none &none &none &none &none &none &bt BT_NXT &none &kp C_MUTE
+                        &none &none &none &none &none &none &none &bt BT_PRV &none &kp C_VOL_UP
+                        &none &none &none &none &none &none &none &bt BT_CLR &none &kp C_VOL_DN
+                        >;
+        };
+    };
+};
