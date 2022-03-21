@@ -60,7 +60,7 @@
         second_layer {
             bindings = <&kp BANG &kp ATSN &kp HASH &kp DLLR &kp PRCT &kp CRRT &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
                         &none &none &none &none &none &kp LT &kp GT &kp QMARK &kp COLON &kp DQT 
-                        &none GRAVE &none &none &none &none &kp COMMA &kp DOT &kp FSLH &kp SEMI &kp SQT 
+                        &none &kp GRAVE &none &none &none &none &kp COMMA &kp DOT &kp FSLH &kp SEMI &kp SQT 
                         >;
         };
         
@@ -71,5 +71,11 @@
                         >;
         };
 
+        fourth_layer {
+            bindings = <&bootloader &none &none &none &none &none &none &bt BT_NXT &none &kp C_MUTE
+                        &none &none &none &none &none &none &none &bt BT_PRV &none &kp C_VOL_UP
+                        &none &none &kp LC(C) &none &none &caps_word &none &bt BT_CLR &none &kp C_VOL_DN
+                        >;
+        };
     };
 };
