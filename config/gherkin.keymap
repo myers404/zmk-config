@@ -20,7 +20,7 @@
 
         default_layer {
             bindings = <&kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
-                        &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &mt SPACE LGUI
+                        &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &mt LGUI SPACE
                         &mt LSHIFT Z &lt LAYER4 X &kp C &lt LAYER1 V &lt LAYER2 B &lt LAYER3 N &kp M &kp ESC &kp BSPC &mt RSHIFT ENTER
                         >;
         };
