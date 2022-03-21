@@ -22,14 +22,14 @@
             label = "TAP_DANCE_1";
             #binding-cells = <23>;
             tapping-term-ms = <200>;
-            bindings = <&kp C>, <&kp LGUI(C)>;
+            bindings = <&kp C>, <&kp LG(C)>;
         };
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_2";
             #binding-cells = <24>;
             tapping-term-ms = <200>;
-            bindings = <&kp V>, <&kp LGUI(V)>;
+            bindings = <&kp V>, <&kp LG(V)>;
         };
     };
 
