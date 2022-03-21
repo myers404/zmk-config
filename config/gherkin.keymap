@@ -15,40 +15,42 @@
 #define LAYER4   4
 
 / {
-    behaviors {
-        td0: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp Q>, <&kp ESC>;
-        };
-        td1: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_1";
-            #binding-cells = <23>;
-            tapping-term-ms = <200>;
-            bindings = <&kp C>, <&kp LG(C)>;
-        };
-        td2: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_2";
-            #binding-cells = <24>;
-            tapping-term-ms = <200>;
-            bindings = <&kp V>, <&kp LG(V)>;
-        };
-    };
-
-/ {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <&td0 &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
+            bindings = <&none &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
                         &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SPACE 
-                        &mt LSHIFT Z &lt LAYER4 X &td1 &lt LAYER1 V &lt LAYER2 B &lt LAYER3 N &kp M &kp LGUI &kp BSPC &mt RSHIFT ENTER
+                        &mt LSHIFT Z &lt LAYER4 X &none &none &lt LAYER1 B &lt LAYER2 N &lt LAYER3 M &kp LGUI &kp BSPC &mt RSHIFT ENTER
                         >;
         };
 
+        first_layer {
+            bindings = <&kp BANG &kp ATSN &kp HASH &kp DLLR &kp PRCT &kp CRRT &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
+                        &kp TILDE &none &none &none &none &kp MINUS &kp PLUS &kp LBRC &kp RBRC &kp PIPE 
+                        &kp GRAVE &none &none &none &none &kp UNDER &kp EQUAL &kp LBKT &kp RBKT &kp BSLH 
+                        >;
+        };
+
+        second_layer {
+            bindings = <&kp BANG &kp ATSN &kp HASH &kp DLLR &kp PRCT &kp CRRT &kp AMPS &kp KMLT &kp LPRN &kp RPRN 
+                        &none &none &none &none &none &kp LT &kp GT &kp QMARK &kp COLON &kp DQT 
+                        &none &none &none &none &none &kp COMMA &kp DOT &kp FSLH &kp SEMI &kp SQT 
+                        >;
+        };
+        
+        third_layer {
+            bindings = <&kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+                        &none &none &none &none &none &none &kp LEFT &kp DOWN &kp UP &kp RIGHT
+                        &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &none &none &none &kp RALT &kp RCTRL &kp RSHFT
+                        >;
+        };
+
+        fourth_layer {
+            bindings = <&bootloader &none &none &none &none &none &none &bt BT_NXT &none &kp C_MUTE
+                        &none &none &none &none &none &none &none &bt BT_PRV &none &kp C_VOL_UP
+                        &none &none &kp LC(C) &none &none &caps_word &none &bt BT_CLR &none &kp C_VOL_DN
+                        >;
+        };
     };
 };
