@@ -15,11 +15,22 @@
 #define LAYER4   4
 
 / {
+    behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp Q>, <&kp ESC>;
+        };
+    };
+
+/ {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <&none &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
+            bindings = <&td0 &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P 
                         &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SPACE 
                         &mt LSHIFT Z &lt LAYER4 X &none &none &lt LAYER1 B &lt LAYER2 N &lt LAYER3 M &kp LGUI &kp BSPC &mt RSHIFT ENTER
                         >;
